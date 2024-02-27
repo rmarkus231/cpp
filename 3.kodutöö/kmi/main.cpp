@@ -10,7 +10,7 @@ double kehamassiindeks(double pikkus_m, int kaal){
 string hinnang(double kmi){
 	if(kmi >= static_cast<double>(30)){
 		return "rasvumine";
-	}else if(kmi < static_cast<double>(30) && kmi >= static_cast<double>(26))
+	}else if(kmi < static_cast<double>(30) && kmi >= static_cast<double>(26)){
 		return "ylekaal";
 	}else if(kmi < static_cast<double>(26) && kmi >= static_cast<double>(20)){
 		return "ideaalkaal";
@@ -20,7 +20,15 @@ string hinnang(double kmi){
 }
 
 int main(){
-	double kmi{kehamassiindeks(1.94,65)}
+	string in1{};
+	string in2{};
+	cin >> in1;
+	cin >> in2;
+
+	double pikkus = stod(in1);
+	int kaal = stoi(in2);
+
+	double kmi{kehamassiindeks(pikkus,kaal)};
 	cout << "kmi: " << kmi << " hinnang: " << hinnang(kmi) << '\n';
 	return 0;
 }
