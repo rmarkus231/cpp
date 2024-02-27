@@ -1,12 +1,15 @@
 MAIN := main.cpp 
-SOURCES := 
+SOURCES = kodu3_fun_def.cpp
 EXEC := main
 CXX := g++
 CXXFLAGS := -g -std=c++20 
 
-$(EXEC): $(MAIN)
+$(EXEC): $(MAIN) $(SOURCES)
 	$(CXX) $(CXXFLAGS) -o $(EXEC) $(MAIN) $(SOURCES)
 
-run: $(EXEC)
+r: $(EXEC)
 	./$(EXEC)
+
+c: $(EXEC)
+	rm $(EXEC)
 
