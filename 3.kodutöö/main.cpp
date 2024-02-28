@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int main(){
+int main(int argc, char* argv[]){
 	//string word{"c++"};
 	//cout << fun(10,5) << '\n';
 	//cout << fun(static_cast<double>(2.4)) << '\n';
@@ -11,4 +11,5 @@ int main(){
 	//double kmi = kehamassiindeks(1.90,80);
 	//cout << "kmi: " << kmi << " hinnang: " << hinnang(kmi) << '\n';
 	andmed_failist("andmed.txt");
+	//cout << otsi_mustrit(argc, argv) << endl;
 }

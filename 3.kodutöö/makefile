@@ -8,7 +8,7 @@ $(EXEC): $(MAIN) $(SOURCES)
 	$(CXX) $(CXXFLAGS) -o $(EXEC) $(MAIN) $(SOURCES)
 
 r: $(EXEC)
-	./$(EXEC)
+	./$(EXEC) 1 text
 
 c: $(EXEC)
 	rm $(EXEC)

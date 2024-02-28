@@ -62,26 +62,32 @@ void andmed_failist(string filename){
 			matrix.push_back(nums);
 			nums.clear();
 		}
-		/*
-				cout << matrix[i][j] << " ";
+		ofstream outFile("tulemused.txt");
+		if(outFile.is_open()){
+			double rowSum{};
+			double totalSum{};
+			double count{};
+			for(size_t i = 0; i < matrix.size();i++){
+				for(size_t j = 0; j < matrix[i].size();j++){
+					//cout << matrix[i][j] << " ";
+					rowSum += matrix[i][j];
+					totalSum += matrix[i][j];
+					count++;
+				}
+				outFile << rowSum/count << endl;
+				count = 0;
+				rowSum= 0;
 			}
-			cout << endl;
+			outFile << totalSum;
+			outFile.close();
+		}else{
+			cout << "Probleem faili loomisega." << endl;
 		}
-		*/
-		double rowSum{};
-		double totalSum{};
-		double count{};
-		for(size_t i = 0; i < matrix.size();i++){
-			for(size_t j = 0; j < matrix[i].size();j++){
-				//cout << matrix[i][j] << " ";
-				rowSum += matrix[i][j];
-				totalSum += matrix[i][j];
-				count++;
-			}
-			cout << rowSum/count << endl;
-			count = 0;
-			rowSum= 0;
-		}
-		cout << totalSum << endl;
 	}
 }
+
+/*
+string otsi_mustrit(int& argc, char* arfv[]){
+	return string i{"test"};
+}
+*/
