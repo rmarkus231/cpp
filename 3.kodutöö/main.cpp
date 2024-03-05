@@ -10,6 +10,6 @@ int main(int argc, char* argv[]){
 	//cout << fun(10,word) << '\n';
 	//double kmi = kehamassiindeks(1.90,80);
 	//cout << "kmi: " << kmi << " hinnang: " << hinnang(kmi) << '\n';
-	andmed_failist("andmed.txt");
-	//cout << otsi_mustrit(argc, argv) << endl;
+	//andmed_failist("andmed.txt");
+	cout << otsi_mustrit(argc, argv);
 }

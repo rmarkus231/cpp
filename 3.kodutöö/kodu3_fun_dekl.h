@@ -7,4 +7,5 @@ std::string fun(unsigned int,std::string);
 double kehamassiindeks(double,int);
 std::string hinnang(double);
 void andmed_failist(std::string);
+std::string  otsi_mustrit(int& argc, char* argv[]);
 #endif

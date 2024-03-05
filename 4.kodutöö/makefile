@@ -1,8 +1,9 @@
 MAIN := main.cpp 
-SOURCES = kodu3_fun_def.cpp
+SOURCES =
 EXEC := main
 CXX := g++
-CXXFLAGS := -g -std=c++20 -Wall -Wpedantic -Werror -O2
+CDXFLAGS := -g -std=c++20 -Wall -Wpedantic -Werror -O2
+CXXFLAGS := -g -std=c++20
 
 $(EXEC): $(MAIN) $(SOURCES)
 	$(CXX) $(CXXFLAGS) -o $(EXEC) $(MAIN) $(SOURCES)

@@ -5,6 +5,7 @@
 #include <vector>
 #include <iostream>
 #include <cstdlib>
+#include <sstream>
 using namespace std;
 
 int fun(int num1, int num2){
@@ -17,7 +18,7 @@ int fun(double num1){
 
 string fun(unsigned int num1, string word){
 	string ret{""};
-	for(int i = 0; i <= num1; i++){
+	for(unsigned int i = 0; i < num1; i++){
 		ret += word;
 	}
 	return ret;
@@ -31,10 +32,10 @@ double kehamassiindeks(double pikkus_m, int kaal){
 string hinnang(double kmi){
 	if(kmi >= static_cast<double>(30)){
 		return "rasvumine";
-	}else if(kmi < static_cast<double>(30) && kmi >= static_cast<double>(26)){
-		return "ylekaal";
-	}else if(kmi < static_cast<double>(26) && kmi >= static_cast<double>(20)){
-		return "ideaalkaal";
+	}else if(kmi < static_cast<double>(30) && kmi >= static_cast<double>(25)){
+		return "ülekaal";
+	}else if(kmi < static_cast<double>(25) && kmi >= static_cast<double>(19)){
+		return "normaalkaal";
 	}else{
 		return "alakaal";
 	}
@@ -78,7 +79,7 @@ void andmed_failist(string filename){
 				count = 0;
 				rowSum= 0;
 			}
-			outFile << totalSum;
+			outFile << static_cast<double>(totalSum);
 			outFile.close();
 		}else{
 			cout << "Probleem faili loomisega." << endl;
@@ -86,8 +87,30 @@ void andmed_failist(string filename){
 	}
 }
 
-/*
-string otsi_mustrit(int& argc, char* arfv[]){
-	return string i{"test"};
+
+string otsi_mustrit(int& argc, char* argv[]){
+	string otsitav = "";
+	int loc{};
+	string temp;
+	string comp;
+	stringstream ss;
+	for(int i = 1; i < argc;i++){
+		loc = static_cast<string>(argv[i]).find("-otsi=");
+		temp = static_cast<string>(argv[i]);
+		if(static_cast<string>(argv[i]).find("-otsi=") != string::npos){
+			otsitav = temp.substr(loc+6,temp.size()-6);
+		}else{
+			comp += temp + " ";	
+		}
+	}
+	if(otsitav == ""){
+		return "Mustrit ei ole olemas.";
+	}else if(comp.find(otsitav) != string::npos){ 
+		ss << "Otsitav '" << otsitav << "' leiti." << endl;;
+		return ss.str();
+	}else{
+		ss << "Otsitavat '" << otsitav << "' ei leitud." << endl;
+		return ss.str();
+	}
 }
-*/
+
