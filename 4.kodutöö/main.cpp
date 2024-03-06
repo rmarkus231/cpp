@@ -25,7 +25,11 @@ void testOnVahemikus(){
 void testMassiiv(){
 	Massiiv<int> m{};
 	m.lisaElement(0);
+	m.lisaElement(1);
 	cout << m.kasSisaldub(1) << endl;
+	m.kustutaElement();
+	cout << m.kasSisaldub(1) << endl;
+
 	/*
 	m.lisaElement(5);
 	m.lisaElement(8);
@@ -44,7 +48,7 @@ void testMassiiv(){
 }
 
 int main(){
-	testLiida();
-	testOnVahemikus();
+	//testLiida();
+	//testOnVahemikus();
 	testMassiiv();
 }

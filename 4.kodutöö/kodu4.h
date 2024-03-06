@@ -30,10 +30,14 @@ public:
 	bool kasSisaldub(T el);
 private:
 	int lastChanged{-1};
-	T mass[100] {0};
+	//T mass[100] {0};
+	vector<T> mass;
 };
 template <typename T>
 Massiiv<T>::Massiiv(){
+	for(int i = 0;i < 100; i++){
+		mass.push_back(0);
+	}
 }
 template <typename T>
 T Massiiv<T>::getElement(int i){
@@ -45,7 +49,7 @@ T Massiiv<T>::getElement(int i){
 }
 template <typename T>
 bool Massiiv<T>::kasTais(){
-	if(lastChanged == 100){
+	if(lastChanged == 99){
 		return true;
 	}else{
 		return false;
@@ -72,8 +76,10 @@ void Massiiv<T>::print(){
 }
 template <typename T>
 void Massiiv<T>::lisaElement(T el){
-	lastChanged++;
-	mass[lastChanged] = el;
+	if(lastChanged < 99){
+		lastChanged++;
+		mass[lastChanged] = el;
+	}
 }
 template <typename T>
 void Massiiv<T>::kustutaElement(){
