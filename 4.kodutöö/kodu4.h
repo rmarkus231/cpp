@@ -29,19 +29,15 @@ public:
 	int vabuKohti();
 	bool kasSisaldub(T el);
 private:
-	int lastChanged{-1};
-	//T mass[100] {0};
-	vector<T> mass;
+	int loc{-1};
+	T mass[100] {0};
 };
 template <typename T>
 Massiiv<T>::Massiiv(){
-	for(int i = 0;i < 100; i++){
-		mass.push_back(0);
-	}
 }
 template <typename T>
 T Massiiv<T>::getElement(int i){
-	if(i > lastChanged){
+	if(i > loc){
 		return -1111;
 	}else{
 		return mass[i];
@@ -49,7 +45,7 @@ T Massiiv<T>::getElement(int i){
 }
 template <typename T>
 bool Massiiv<T>::kasTais(){
-	if(lastChanged == 99){
+	if(loc == 99){
 		return true;
 	}else{
 		return false;
@@ -57,7 +53,7 @@ bool Massiiv<T>::kasTais(){
 }
 template <typename T>
 bool Massiiv<T>::kasTyhi(){
-	if(lastChanged == -1){
+	if(loc == -1){
 		return true;
 	}else{
 		return false;
@@ -65,30 +61,28 @@ bool Massiiv<T>::kasTyhi(){
 }
 template <typename T>
 int Massiiv<T>::getSuurus(){
-	return lastChanged+1;
+	return loc+1;
 }
 template <typename T>
 void Massiiv<T>::print(){
-	for(int i = 0; i < lastChanged+1;i++){
+	for(int i = 0; i < loc+1;i++){
 		cout << mass[i] << ' ';
 	}
 	cout << endl;
 }
 template <typename T>
 void Massiiv<T>::lisaElement(T el){
-	if(lastChanged < 99){
-		lastChanged++;
-		mass[lastChanged] = el;
-	}
+	loc++;
+	mass[loc] = el;
 }
 template <typename T>
 void Massiiv<T>::kustutaElement(){
-	mass[lastChanged] = 0;
-	--lastChanged;
+	mass[loc] = 0;
+	--loc;
 }
 template <typename T>
 void Massiiv<T>::asendaElement(T el1, T el2){
-	for(int i = 0; i < lastChanged;i++){
+	for(int i = 0; i < loc+1;i++){
 		if(mass[i] == el1){
 			mass[i] = el2;
 		}
@@ -96,11 +90,11 @@ void Massiiv<T>::asendaElement(T el1, T el2){
 }
 template <typename T>
 int Massiiv<T>::vabuKohti(){
-	return 99-lastChanged;
+	return 99-loc;
 }
 template <typename T>
 bool Massiiv<T>::kasSisaldub(T el){
-	for(int i = 0; i <= lastChanged;i++){
+	for(int i = 0; i <= loc+1;i++){
 		if(mass[i] == el){
 			return true;
 		}
