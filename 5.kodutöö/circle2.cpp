@@ -35,7 +35,7 @@ bool Circle2::contains(Line2* i){
 }
 
 void Circle2::scale(float factor){
-	if(fac > 0.0){
-		r = r*fac;
+	if(factor > 0.0){
+		r = r*factor;
 	}
 }

@@ -10,5 +10,5 @@ Point2::Point2(float nx, float ny){
 	y = ny;
 }
 float Point2::distanceFrom(Point2* p2){
-	return sqrt(pow((p2->x),2)+pow((p2->y),2));
+	return sqrt(pow(x-(p2->x),2)+pow(y-(p2->y),2));
 }
