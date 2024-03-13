@@ -1,7 +1,7 @@
 #include "arvutused.h"
+#include <concepts>
 using namespace std;
-
-int suurim(int* a, int* b, int* c){
+int suurim(int* a, int* b, int*c){
 	if(*a > *b and *a > *c){
 		return *a;
 	}else if(*b > *a and *b > *c){
@@ -10,6 +10,8 @@ int suurim(int* a, int* b, int* c){
 		return *c;
 	}
 }
+
+
 int suurim(int& a, int& b, int& c){
 	if(a > b and a > c){
 		return a;
@@ -19,6 +21,8 @@ int suurim(int& a, int& b, int& c){
 		return c;
 	}
 }
+
+
 int suurim(int& a, int* b, int* c){
 	if(a > *b and a > *c){
 		return a;
