@@ -29,8 +29,22 @@ void testReadFile(bool f){
 	}
 }
 
+void testAuto(){
+	string fn = "autod.txt";
+	vector<Auto*>* autod = loeAutod(fn);
+	for(size_t i = 0; i < autod->size();i++){
+		cout << *(autod->at(i)) << endl;
+	}
+	Auto* lowCost = vähima_kuluga(autod);
+	cout << "vähima kuluga: " << *lowCost << endl;
+	kustutaAutod(autod);
+}
+
+#if !defined(VPL_TEST)
 int main(){
 	//testHeapArr(false);
-	testReadFile(false);
+	//testReadFile(false);
+	testAuto();
 	return 0;
 }
+#endif

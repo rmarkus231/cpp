@@ -6,35 +6,37 @@
 #include <sstream>
 using namespace std;
 
-set<Hoia>& loe_hoia(string file, set<Hoia>& s){
-//	string *fp = file;
-	ifstream fin(file,fstream::in);
-	string temp;
-	while(getline(fin,temp," ")){
-		s.insert(temp);
-		temp = "";
-	}
-	return s;
-}
 
-Hoia::Hoia(string s){
-	val = s;
-}
+void test0(){
+	Hoia a("apple");
+	Hoia b("banana");
+	Hoia c("apple");
 
-string& Hoia::get(){
-	return val;
+	cout << (a<b) << endl;
+	cout << (a<c) << endl;
+	cout << (b<c) << endl;
 }
 
 void test1(){
 	set<Hoia> s1;
-	s1 = loe_hoia("andmed.txt",s1);
+	s1 = loe_hoia("andmed2.txt",s1);
 	for(auto el: s1){
 		cout << el.get() << " ";
 	}
 	cout << endl;
 }
 
+void test2(){
+	map<string,int> m;
+	m = loe_failist("andmed3.txt",m);
+	for (const auto& pair : m) {
+        	std::cout << pair.first << " : " << pair.second << std::endl;
+    	}
+}
+
 int main(){
-	test1();
+	//test0();
+	//test1();
+	test2();
 	return 0;
 }
