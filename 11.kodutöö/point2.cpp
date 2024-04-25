@@ -1,3 +1,5 @@
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wfloat-conversion"
 #include "point2.h"
 #include <memory>
 #include <cmath>
@@ -30,5 +32,6 @@ void Point2::setNy(float ny){
 }
 
 float Point2::distanceFrom(shared_ptr<Point2> p){
-	return sqrt(pow((p.getNx()-x),2) + pow((p.getNy()-y),2));
+	return sqrt(pow((p->getNx()-x),2) + pow((p->getNy()-y),2));
 }
+#pragma GCC diagnostic pop

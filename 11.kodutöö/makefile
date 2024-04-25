@@ -15,3 +15,5 @@ r: $(EXEC)
 c: $(EXEC)
 	rm $(EXEC)
 
+g: $(EXEC)
+	gdb ./$(EXEC) ./core_dump

@@ -10,11 +10,12 @@ class Circle2{
 	public:
 		Circle2();
 		Circle2(shared_ptr<Point2>,float);
-		Circle2(const Circle2&) = default;
-		Circle2(Circle2&&) = default;
+		Circle2(const Circle2&);
+		Circle2(Circle2&&);
 		float circumference();
 		float area();
 		bool contains(shared_ptr<Point2>);
+		bool contains(shared_ptr<Line2>);
 		void scale(float);
 		shared_ptr<Point2> getNp1();
 		void setNp1(shared_ptr<Point2>);
@@ -22,7 +23,7 @@ class Circle2{
 		void setNr(float);
 
 		friend std::ostream& operator<<(std::ostream& os, const Circle2& cr) {
-		        os <<'('<<cr.p1->getNx()<<','<<cr.p1->getNy()<<')'<<','<<cr.getNr();
+		        os <<'('<<cr.p1->getNx()<<','<<cr.p1->getNy()<<')'<<','<<cr.r;
 		        return os;
     		};
 	private:
