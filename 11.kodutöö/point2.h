@@ -1,5 +1,5 @@
-#ifndef LINE2_H
-#define LINE2_H
+#ifndef POINT2_H
+#define POINT2_H
 #include <iostream>
 #include <memory>
 using namespace std;
