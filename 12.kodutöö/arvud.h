@@ -8,19 +8,6 @@ using namespace std;
 bool isPrime(int);
 int nthPrime(int);
 
-template <MinuTaisarv T, Algarv T>
-T loeArv(int x){
-	sum = 0;
-	for(int i = 0; i < (log10(x)+1);i++){
-		sum += (val/pow(10,i))%10;
-	};
-	if(isPrime(sum)){
-		return Algarv(sum);
-	}else{
-		return MinuTaisarv(sum);
-	};
-};
-
 class MinuTaisarv{
 	public:
 		MinuTaisarv();
@@ -28,7 +15,7 @@ class MinuTaisarv{
 		int getArv();
 		void setArv(int);
 	
-		ostream& operator<<(ostream& os, const MinuTäisarv& x){
+		friend ostream& operator<<(ostream& os, const MinuTaisarv& x){
 	    		os << x.val;
 		    	return os;
 		};
@@ -41,34 +28,46 @@ class Algarv: public MinuTaisarv{
 	public:
 		Algarv(int);
 		int getMitmes();
-		Algarv& operator++(int){
+		Algarv& operator++(){
+			++val;
+			return *this;
+		};
+		void operator++(int){
+			//cout << "in ++" << endl;
 			while(true){
-				++val;
+				++(*this);
 				if(isPrime(val)){
 					break;
 				};
 			};
 			mitmes = nthPrime(val);
+		};
+
+
+		Algarv& operator--(){
+			--val;
 			return *this;
 		};
-		Algarv& operator--(int){
+		void operator--(int){
+			//cout << "in ++" << endl;
 			if(val <= 2){		
-				return *this;
 			};
 			while(true){
-				--val;
+				++(*this);
 				if(isPrime(val)){
 					break;
 				};
 			};
 			mitmes = nthPrime(val);
-			return *this;
 		};
-		ostream& operator<<(ostream& os, const MinuTäisarv& x){
-	    		os <<"arv "<< x.val " on "<<mitmes<<". algarv";
+		friend ostream& operator<<(ostream& os, const Algarv& x){
+	    		os <<"arv "<< x.val << " on "<<x.mitmes<<". algarv";
 		    	return os;
 		};
 	private:
 		int mitmes;
+		int val;
 };
+
+int loeArv(int);
 #endif
